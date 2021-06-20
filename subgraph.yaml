@@ -1,0 +1,35 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: CrowdclickEscrow
+    network: mumbai
+    source:
+      address: "0x7989dcf4254b150aC5FA6f3764051724B4cE5E9e"
+      abi: CrowdclickEscrow
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - CampaignCreated
+        - OwnershipTransferred
+        - PublisherWithdrawalEmitted
+        - RewardForwarded
+        - UserWithdrawalEmitted
+      abis:
+        - name: CrowdclickEscrow
+          file: ./abis/CrowdclickEscrow.json
+      eventHandlers:
+        - event: CampaignCreated(address,uint256,string)
+          handler: handleCampaignCreated
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: PublisherWithdrawalEmitted(address,uint256,string)
+          handler: handlePublisherWithdrawalEmitted
+        - event: RewardForwarded(address,uint256,string)
+          handler: handleRewardForwarded
+        - event: UserWithdrawalEmitted(address,uint256)
+          handler: handleUserWithdrawalEmitted
+      file: ./src/mapping.ts
