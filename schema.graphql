@@ -1,6 +1,7 @@
-type ExampleEntity @entity {
+type Publisher @entity {
   id: ID!
   count: BigInt!
-  publisher: Bytes! # address
-  campaignBudget: BigInt! # uint256
+  address: Bytes!
+  campaignBudget: BigInt!
+  campaignUrl: String!
 }
