@@ -5,3 +5,11 @@ type Publisher @entity {
   campaignBudget: BigInt!
   campaignUrl: String!
 }
+
+type User @entity {
+  id: ID!
+  count: BigInt!
+  address: Bytes!
+  reward: BigInt!
+  campaignUrl: String!
+}
