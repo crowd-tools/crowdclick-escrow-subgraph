@@ -4,10 +4,10 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: CrowdclickEscrow
-    network: mumbai
+    network: matic
     source:
-      address: "0x7989dcf4254b150aC5FA6f3764051724B4cE5E9e"
-      startBlock: 13324759
+      address: "{{contract_address}}"
+      startBlock: {{contract_creation_block}}
       abi: CrowdclickEscrow
     mapping:
       kind: ethereum/events
@@ -29,7 +29,7 @@ dataSources:
           handler: handleOwnershipTransferred
         - event: PublisherWithdrawalEmitted(address,uint256,string)
           handler: handlePublisherWithdrawalEmitted
-        - event: RewardForwarded(address,uint256,string)
+        - event: RewardForwarded(address,address,uint256,string)
           handler: handleRewardForwarded
         - event: UserWithdrawalEmitted(address,uint256)
           handler: handleUserWithdrawalEmitted

@@ -2,6 +2,8 @@
   "name": "crowdclick-escrow-subgraph",
   "license": "UNLICENSED",
   "scripts": {
+    "prepare:polygon": "mustache config/polygon.json subgraph.template.yaml > subgraph.yaml",
+    "prepare:binance": "mustache config/binance.json subgraph.template.yaml > subgraph.yaml",
     "codegen": "graph codegen",
     "build": "graph build",
     "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ crowd-tools/crowdclick-escrow-subgraph",
@@ -12,5 +14,8 @@
   "dependencies": {
     "@graphprotocol/graph-cli": "0.20.1",
     "@graphprotocol/graph-ts": "0.20.0"
+  },
+  "devDependencies": {
+    "mustache": "^4.2.0"
   }
 }

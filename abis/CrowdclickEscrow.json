@@ -1,5 +1,26 @@
 [
   {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_crowdclickOracleAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_feePercentage",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address payable",
+        "name": "_feeCollector",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {
@@ -79,6 +100,12 @@
       },
       {
         "indexed": false,
+        "internalType": "address",
+        "name": "publisher",
+        "type": "address"
+      },
+      {
+        "indexed": false,
         "internalType": "uint256",
         "name": "reward",
         "type": "uint256"
@@ -115,76 +142,54 @@
   {
     "inputs": [],
     "name": "collectedFee",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
-    "type": "function",
-    "constant": true
-  },
-  {
-    "inputs": [],
-    "name": "divider",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function",
-    "constant": true
+    "type": "function"
   },
   {
     "inputs": [],
     "name": "feeCollector",
     "outputs": [
-      { "internalType": "address payable", "name": "", "type": "address" }
+      {
+        "internalType": "address payable",
+        "name": "",
+        "type": "address"
+      }
     ],
     "stateMutability": "view",
-    "type": "function",
-    "constant": true
+    "type": "function"
   },
   {
     "inputs": [],
     "name": "feePercentage",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
-    "type": "function",
-    "constant": true
-  },
-  {
-    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
-    "name": "lastUserWithdrawalTime",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function",
-    "constant": true
-  },
-  {
-    "inputs": [],
-    "name": "maximumWeiUserWithdrawal",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function",
-    "constant": true
-  },
-  {
-    "inputs": [],
-    "name": "minimumUsdWithdrawal",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function",
-    "constant": true
-  },
-  {
-    "inputs": [],
-    "name": "multiplier",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function",
-    "constant": true
+    "type": "function"
   },
   {
     "inputs": [],
     "name": "owner",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
-    "type": "function",
-    "constant": true
+    "type": "function"
   },
   {
     "inputs": [],
@@ -195,7 +200,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "newOwner", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
     ],
     "name": "transferOwnership",
     "outputs": [],
@@ -205,43 +214,30 @@
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "_crowdclickOracleAddress",
-        "type": "address"
+        "internalType": "string",
+        "name": "_uuid",
+        "type": "string"
       },
       {
         "internalType": "uint256",
-        "name": "_minimumUsdWithdrawal",
+        "name": "_taskBudget",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "_feePercentage",
+        "name": "_taskReward",
         "type": "uint256"
       },
       {
-        "internalType": "address payable",
-        "name": "_feeCollector",
-        "type": "address"
+        "internalType": "string",
+        "name": "_campaignUrl",
+        "type": "string"
       }
-    ],
-    "name": "initialize",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "string", "name": "_uuid", "type": "string" },
-      { "internalType": "uint256", "name": "_taskBudget", "type": "uint256" },
-      { "internalType": "uint256", "name": "_taskReward", "type": "uint256" },
-      { "internalType": "string", "name": "_campaignUrl", "type": "string" }
     ],
     "name": "openTask",
     "outputs": [],
     "stateMutability": "payable",
-    "type": "function",
-    "payable": true
+    "type": "function"
   },
   {
     "inputs": [
@@ -272,64 +268,73 @@
   {
     "inputs": [
       {
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
+    ],
+    "name": "balanceOfPublisher",
+    "outputs": [
+      {
         "internalType": "uint256",
-        "name": "_updatedMaximumWeiUserWithdrawal",
+        "name": "",
         "type": "uint256"
       }
     ],
-    "name": "changeMaximumWeiUserWithdrawal",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_address", "type": "address" }
-    ],
-    "name": "balanceOfPublisher",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function",
-    "constant": true
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "_address", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
     ],
     "name": "balanceOfUser",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
-    "type": "function",
-    "constant": true
-  },
-  {
-    "inputs": [],
-    "name": "isUserWithdrawalEnabled",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
-    "stateMutability": "view",
-    "type": "function",
-    "constant": true
+    "type": "function"
   },
   {
     "inputs": [],
     "name": "withdrawUserBalance",
     "outputs": [],
     "stateMutability": "payable",
-    "type": "function",
-    "payable": true
-  },
-  {
-    "inputs": [{ "internalType": "string", "name": "_uuid", "type": "string" }],
-    "name": "withdrawFromCampaign",
-    "outputs": [],
-    "stateMutability": "payable",
-    "type": "function",
-    "payable": true
+    "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "string", "name": "_uuid", "type": "string" },
-      { "internalType": "address", "name": "_address", "type": "address" }
+      {
+        "internalType": "string",
+        "name": "_uuid",
+        "type": "string"
+      }
+    ],
+    "name": "withdrawFromCampaign",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_uuid",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
     ],
     "name": "lookupTask",
     "outputs": [
@@ -350,8 +355,16 @@
             "name": "currentBudget",
             "type": "uint256"
           },
-          { "internalType": "string", "name": "url", "type": "string" },
-          { "internalType": "bool", "name": "isActive", "type": "bool" }
+          {
+            "internalType": "string",
+            "name": "url",
+            "type": "string"
+          },
+          {
+            "internalType": "bool",
+            "name": "isActive",
+            "type": "bool"
+          }
         ],
         "internalType": "struct CrowdclickEscrow.Task",
         "name": "task",
@@ -359,34 +372,30 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function",
-    "constant": true
+    "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_userAddress", "type": "address" },
+      {
+        "internalType": "address",
+        "name": "_userAddress",
+        "type": "address"
+      },
       {
         "internalType": "address",
         "name": "_publisherAddress",
         "type": "address"
       },
-      { "internalType": "string", "name": "_uuid", "type": "string" }
+      {
+        "internalType": "string",
+        "name": "_uuid",
+        "type": "string"
+      }
     ],
     "name": "forwardRewards",
     "outputs": [],
     "stateMutability": "payable",
-    "type": "function",
-    "payable": true
-  },
-  {
-    "inputs": [
-      { "internalType": "uint256", "name": "_assetPrice", "type": "uint256" }
-    ],
-    "name": "calculateWithdrawalRate",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function",
-    "constant": true
+    "type": "function"
   },
   {
     "inputs": [],
@@ -397,7 +406,11 @@
   },
   {
     "inputs": [
-      { "internalType": "string", "name": "_uuid", "type": "string" },
+      {
+        "internalType": "string",
+        "name": "_uuid",
+        "type": "string"
+      },
       {
         "internalType": "address payable",
         "name": "_publisherAddress",
@@ -407,8 +420,7 @@
     "name": "adminPublisherWithdrawal",
     "outputs": [],
     "stateMutability": "payable",
-    "type": "function",
-    "payable": true
+    "type": "function"
   },
   {
     "inputs": [
@@ -421,7 +433,6 @@
     "name": "adminUserWithdrawal",
     "outputs": [],
     "stateMutability": "payable",
-    "type": "function",
-    "payable": true
+    "type": "function"
   }
 ]
